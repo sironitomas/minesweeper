@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -24,3 +24,15 @@ class Game(db.Model):
     game_over = db.Column(db.Boolean, nullable=False)
     system_board = db.Column(db.PickleType, nullable=False)
     user_board = db.Column(db.PickleType, nullable=False)
+
+
+@app.route('/api/users', methods=['POST'])
+def new_user():
+    email = request.form['email']
+    if User.query.filter_by(email=email).first() == None:
+        user = User(email=email)
+        db.session.add(user)
+        db.session.commit()
+        return jsonify(data={'id':user.id, 'email':user.email})
+    else:
+        return jsonify(error={'code': 11}, message='User is already registered')
