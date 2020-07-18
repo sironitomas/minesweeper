@@ -1,6 +1,6 @@
-# minesweeper
+# Minesweeper
 
-RESTful API Demo
+RESTful API Demo (work in progress)
 
 ## Requirements
 
@@ -19,3 +19,7 @@ To get game information:
 
 To play game:
 * PUT `/api/games/<id>`
+
+## Other details
+
+* SQLAlchemy used as ORM

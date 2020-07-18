@@ -12,7 +12,7 @@ class Minesweeper:
 
         mines_position = []
         while len(mines_position) < self.mines:
-            x, y = randint(0, columns-1), randint(0, rows-1)
+            x, y = randint(0, self.columns-1), randint(0, self.rows-1)
             if (x, y) not in mines_position:
                 mines_position.append((x, y))
 
