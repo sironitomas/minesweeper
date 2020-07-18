@@ -33,3 +33,6 @@ class Minesweeper:
                     if 0 <= x+dx < self.rows and 0 <= y+dy < self.columns:
                         if self.board[y+dy][x+dx] != -1:
                             self.board[y+dy][x+dx] += 1
+
+    def get_user_board(self):
+        return self.board
