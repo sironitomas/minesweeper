@@ -29,3 +29,13 @@ To play game:
 ## Other details
 
 * SQLAlchemy used as ORM
+
+## How to run
+
+```sh
+python -m virtualenv venv
+. venv/bin/activate
+pip install -r requirements.txt
+python setup.py
+FLASK_APP=app.py flask run
+```
